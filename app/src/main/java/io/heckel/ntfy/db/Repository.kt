@@ -300,6 +300,16 @@ class Repository(
         return sharedPrefs.getInt(SHARED_PREFS_DARK_MODE, AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
     }
 
+    fun setDynamicColorsEnabled(enabled: Boolean) {
+        sharedPrefs.edit()
+            .putBoolean(SHARED_PREFS_DYNAMIC_COLORS, enabled)
+            .commit()
+    }
+
+    fun getDynamicColorsEnabled(): Boolean {
+        return sharedPrefs.getBoolean(SHARED_PREFS_DYNAMIC_COLORS, false)
+    }
+
     fun setConnectionProtocol(connectionProtocol: String) {
         sharedPrefs.edit()
             .putString(SHARED_PREFS_CONNECTION_PROTOCOL, connectionProtocol)
@@ -553,6 +563,7 @@ class Repository(
         const val SHARED_PREFS_AUTO_DELETE_SECONDS = "AutoDelete"
         const val SHARED_PREFS_CONNECTION_PROTOCOL = "ConnectionProtocol"
         const val SHARED_PREFS_DARK_MODE = "DarkMode"
+        const val SHARED_PREFS_DYNAMIC_COLORS = "DynamicColors"
         const val SHARED_PREFS_BROADCAST_ENABLED = "BroadcastEnabled"
         const val SHARED_PREFS_UNIFIEDPUSH_ENABLED = "UnifiedPushEnabled"
         const val SHARED_PREFS_INSISTENT_MAX_PRIORITY_ENABLED = "InsistentMaxPriority"
